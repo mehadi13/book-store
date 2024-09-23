@@ -1,6 +1,20 @@
+import { useEffect, useState } from "react"
 import BookItem from "./BookItem"
 
 const BookList = () => {
+    const [books, setBooks] = useState(null);
+
+    useEffect(() => {
+        // Fetch the JSON data from the public folder
+        fetch('/data.json')
+            .then((response) => response.json())
+            .then((jsonData) => {
+                setBooks(jsonData);
+            })
+            .catch((error) => {
+                console.error("Error fetching the JSON data:", error);
+            });
+    }, []);
     return <>
         <section>
             <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
@@ -14,11 +28,11 @@ const BookList = () => {
                 </header>
 
                 <ul className="mt-8 grid gap-6 grid-cols-1 md:grid-cols-3">
-                    {[1,2,3,4,5,6,7,8,9,10].map((number) => (
-                        <li key={number}>
-                            <BookItem />
+                {books ? books.map((book, index) => (
+                        <li key={index}>
+                            <BookItem item={book} />
                         </li>
-                    ))}
+                    )) : <div>Loading....</div>}
 
                 </ul>
             </div>
