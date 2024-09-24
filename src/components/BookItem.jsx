@@ -1,3 +1,5 @@
+import StarRatings from "react-star-ratings";
+
 const BookItem = ({item}) => {
     const {bookName, author, image, category, tags, rating} = item;
     return <>
@@ -31,21 +33,27 @@ const BookItem = ({item}) => {
             />
 
             <div className="relative border border-gray-300 rounded-b-md bg-white p-6">
+                <div className="flex flex-wrap">
                 {tags? tags.map((tag, index)=>(
-                    <span key={index} className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs text-center font-medium mr-1 rounded-md"> {tag} </span>
+                    <div key={index} className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs text-center font-medium m-1 rounded-md"> {tag} </div>
                 )):<></>}
+                </div>
 
                 <span className="mt-4 text-lg font-medium text-gray-900 block">{bookName}</span>
                 <span className="text-sm text-gray-700">by {author}</span>
                 
-                <p className="mt-1.5 text-sm text-gray-700">{category}</p>
-                <p className="mt-1.5 text-sm text-gray-700">{rating}</p>
-
+                <div className="mt-1.5 text-sm text-gray-700"> 
+                <span className="font-semibold">Category:</span>
+                <span className="ml-1 px-3 bg-orange-200 font-bold text-gray-500">{category}</span>
+                </div>
+                <div className="flex place-content-center">
+                <StarRatings rating={rating} starRatedColor="#eab308" starDimension="20px"/>
+                </div>
                 <form className="mt-4">
                     <button
                         className="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105"
                     >
-                        Add to Cart
+                        Book Details
                     </button>
                 </form>
             </div>

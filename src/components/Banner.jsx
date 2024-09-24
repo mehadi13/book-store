@@ -17,7 +17,7 @@ const Banner = () => {
     className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:items-center lg:px-8"
   >
     <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-      <h1 className="text-3xl font-extrabold text-white sm:text-5xl text-blue-500">
+      <h1 className="text-3xl font-extrabold sm:text-5xl text-blue-500">
       Unlock a World of
       Stories – Find Your Next Favorite Book at
 

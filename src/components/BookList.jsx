@@ -27,7 +27,7 @@ const BookList = () => {
                     </p>
                 </header>
 
-                <ul className="mt-8 grid gap-6 grid-cols-1 md:grid-cols-3">
+                <ul className="mt-8 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {books ? books.map((book, index) => (
                         <li key={index}>
                             <BookItem item={book} />
@@ -36,6 +36,8 @@ const BookList = () => {
 
                 </ul>
             </div>
+        </section>
+        <section>
         </section>
     </>
 }

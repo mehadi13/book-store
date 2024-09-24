@@ -1,8 +1,7 @@
 import Banner from "./components/Banner";
-import Book from "./components/Book";
 import BookList from "./components/BookList";
 import Footer from "./components/Footer";
-import Navbar from "./components/Header";
+import Header from "./components/Header";
 
 import './output.css';
 const App = () => {
@@ -10,11 +9,10 @@ const App = () => {
   return (
     <>
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-      <Navbar/>
+      <Header/>
       <Banner/>
       <BookList/>
       <Footer/>
-      <Book/>
       </div>
       
     </>
