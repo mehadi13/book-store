@@ -1,10 +1,14 @@
+import { Link } from "react-router-dom";
 import StarRatings from "react-star-ratings";
 
-const BookItem = ({item}) => {
-    const {bookName, author, image, category, tags, rating} = item;
+const BookItem = ({ item }) => {
+    const { bookId, bookName, author, image, category, tags, rating } = item;
     return <>
 
-        <a href="#" className="group relative block overflow-hidden rounded-md">
+        <Link
+            to={bookId.toString()}
+            state={{ item }}
+            className="group relative block overflow-hidden rounded-md">
             <button
                 className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75"
             >
@@ -34,30 +38,28 @@ const BookItem = ({item}) => {
 
             <div className="relative border border-gray-300 rounded-b-md bg-white p-6">
                 <div className="flex flex-wrap">
-                {tags? tags.map((tag, index)=>(
-                    <div key={index} className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs text-center font-medium m-1 rounded-md"> {tag} </div>
-                )):<></>}
+                    {tags ? tags.map((tag, index) => (
+                        <div key={index} className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs text-center font-medium m-1 rounded-md"> {tag} </div>
+                    )) : <></>}
                 </div>
 
                 <span className="mt-4 text-lg font-medium text-gray-900 block">{bookName}</span>
                 <span className="text-sm text-gray-700">by {author}</span>
-                
-                <div className="mt-1.5 text-sm text-gray-700"> 
-                <span className="font-semibold">Category:</span>
-                <span className="ml-1 px-3 bg-orange-200 font-bold text-gray-500">{category}</span>
+
+                <div className="mt-1.5 text-sm text-gray-700">
+                    <span className="font-semibold">Category:</span>
+                    <span className="ml-1 px-3 bg-orange-200 font-bold text-gray-500">{category}</span>
                 </div>
-                <div className="flex place-content-center">
-                <StarRatings rating={rating} starRatedColor="#eab308" starDimension="20px"/>
+                <div className="flex place-content-center mt-4">
+                    <StarRatings rating={rating} starRatedColor="#eab308" starDimension="20px" />
                 </div>
-                <form className="mt-4">
-                    <button
-                        className="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105"
-                    >
-                        Book Details
-                    </button>
-                </form>
+                <button
+                    className="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105 mt-4"
+                >
+                    Book Details
+                </button>
             </div>
-        </a>
+        </Link>
     </>
 }
 

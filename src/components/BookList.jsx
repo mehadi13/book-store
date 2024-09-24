@@ -1,20 +1,8 @@
-import { useEffect, useState } from "react"
 import BookItem from "./BookItem"
+import { useLoaderData } from "react-router-dom";
 
-const BookList = () => {
-    const [books, setBooks] = useState(null);
-
-    useEffect(() => {
-        // Fetch the JSON data from the public folder
-        fetch('/data.json')
-            .then((response) => response.json())
-            .then((jsonData) => {
-                setBooks(jsonData);
-            })
-            .catch((error) => {
-                console.error("Error fetching the JSON data:", error);
-            });
-    }, []);
+export default function BookList() {
+    const books = useLoaderData()
     return <>
         <section>
             <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
@@ -28,7 +16,7 @@ const BookList = () => {
                 </header>
 
                 <ul className="mt-8 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                {books ? books.map((book, index) => (
+                    {books ? books.map((book, index) => (
                         <li key={index}>
                             <BookItem item={book} />
                         </li>
@@ -42,4 +30,12 @@ const BookList = () => {
     </>
 }
 
-export default BookList
+export const bookLoader = async () => {
+    const response = await fetch('/data.json');
+
+    if (!response.ok) {
+        throw Error("Could not fetch books.")
+    }
+
+    return response.json();
+}
