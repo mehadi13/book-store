@@ -17,19 +17,16 @@ const Banner = () => {
         className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:items-center lg:px-8"
       >
         <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-          <h1 className="text-3xl font-extrabold sm:text-5xl text-blue-500">
-            Unlock a World of
-            Stories – Find Your Next Favorite Book at
-
-            <strong className="block font-extrabold text-rose-500">[Bookshop Name]</strong>
-          </h1>
+          <span className="font-extrabold text-4xl text-blue-500">Unlock a World of Stories </span>
+            <span className="block font-extrabold text-4xl text-rose-500">Find Your Next Favorite Book at</span>
+            <span className="block font-extrabold text-5xl text-yellow-500 mt-2">Book Nook</span>
 
           <div className="mt-8 flex flex-wrap gap-4 place-content-center">
             <a
               href="#"
               className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
             >
-              Get Started
+              Buy Book
             </a>
           </div>
         </div>

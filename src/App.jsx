@@ -17,7 +17,8 @@ export default function App(){
     createRoutesFromElements(
       <Route path='/' element={<RootLayout/>}>
         <Route index element={<Home/>} loader={bookLoader} />
-        <Route path=":bookId" element={<BookDetails/>}/>
+        <Route path="books" element={<BookList/>} />
+        <Route path="books/:bookId" element={<BookDetails/>}/>
         <Route path="*" element={<PageNotFound/>} />
       </Route>
     )
