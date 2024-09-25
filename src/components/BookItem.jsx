@@ -10,8 +10,8 @@ const BookItem = ({ item }) => {
             state={{ item }}
             className="group relative block overflow-hidden rounded-md">
             <button
-                className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75"
-            >
+            className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75"
+            onClick={(e)=>{e.preventDefault(); alert(`${bookName} has been successfully added to the Wishlist.`)}}>
                 <span className="sr-only">Wishlist</span>
 
                 <svg

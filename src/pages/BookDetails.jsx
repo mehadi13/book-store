@@ -9,7 +9,7 @@ export default function BookDetails() {
         return <div>Book Details not found</div>;
     }
 
-    const { bookName, author, image, category, tags, rating } = book;
+    const { bookId, bookName, author, image, category, tags, rating } = book;
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 py-10 gap-6">
@@ -46,10 +46,14 @@ export default function BookDetails() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 mt-3 gap-4">
-                    <button className="block w-full rounded bg-green-400 p-4 text-sm font-medium transition hover:scale-105">
+                    <button 
+                    className="block w-full rounded bg-green-400 p-4 text-sm font-medium transition hover:scale-105"
+                    onClick={(e)=>{e.preventDefault(); alert(`${bookName}has been successfully added to the Wishlist.`)}}>
                         Wish to Read
                     </button>
-                    <button className="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">
+                    <button 
+                    className="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105"
+                    onClick={(e)=>{e.preventDefault(); alert(`${bookName}has been successfully added to the Cart.`)}}>
                         Add to Cart
                     </button>
                 </div>
