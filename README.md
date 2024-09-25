@@ -1,7 +1,7 @@
 # Book Nook
 
 **Website Name**: Book Nook  
-**Live Site URL**: https://mehadi13.github.io/book-store/
+**Live Site URL**: https://66f3a5cdbca987c10c439b08--glowing-tartufo-21481e.netlify.app/
 
 ---
 
