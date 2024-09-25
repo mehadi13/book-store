@@ -1,17 +1,33 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import StarRatings from "react-star-ratings";
+import Alert from "./Alert";
 
 const BookItem = ({ item }) => {
     const { bookId, bookName, author, image, category, tags, rating } = item;
-    return <>
 
-        <Link
-            to={`/books/${bookId.toString()}`}
-            state={{ item }}
+    // alert
+    const [showAlert, setShowAlert] = useState(false);
+    const [message, setMessage] = useState('');
+    const [title, setTitle] = useState('');
+
+    const triggerAlert = (title, message) => {
+        setMessage(message);
+        setTitle(title);
+        setShowAlert(true); // Show the alert
+    };
+
+    const closeAlert = () => {
+        setShowAlert(false); // Hide the alert
+    };
+
+    return <>
+        {showAlert && <Alert onClose={closeAlert} title={title} message={message} />}
+        <div
             className="group relative block overflow-hidden rounded-md">
             <button
-            className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75"
-            onClick={(e)=>{e.preventDefault(); alert(`${bookName} has been successfully added to the Wishlist.`)}}>
+                className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75"
+                onClick={() => triggerAlert('Added to Wishlist', `${bookName} - (id:${bookId}) has been successfully added to the Wishlist.`)}>
                 <span className="sr-only">Wishlist</span>
 
                 <svg
@@ -53,13 +69,15 @@ const BookItem = ({ item }) => {
                 <div className="flex place-content-center mt-4">
                     <StarRatings rating={rating} starRatedColor="#eab308" starDimension="20px" />
                 </div>
-                <button
-                    className="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105 mt-4"
+                <Link
+                    to={`/books/${bookId.toString()}`}
+                    state={{ item }}
+                    className="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105 mt-4 text-center"
                 >
                     Book Details
-                </button>
+                </Link>
             </div>
-        </Link>
+        </div>
     </>
 }
 

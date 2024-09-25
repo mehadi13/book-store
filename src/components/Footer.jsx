@@ -1,9 +1,31 @@
-import { Toast } from "flowbite-react"
+import { useState } from "react";
 import { Link } from "react-router-dom"
+import Alert from "./Alert";
 
-const Footer = () => {
+export default function Footer() {
+  const [email, setEmail] = useState('');
+
+  const handleInputChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  // alert
+  const [showAlert, setShowAlert] = useState(false);
+  const [message, setMessage] = useState('');
+  const [title, setTitle] = useState('');
+
+  const triggerAlert = (title, message) => {
+    setMessage(message);
+    setTitle(title);
+    setShowAlert(true); // Show the alert
+  };
+
+  const closeAlert = () => {
+    setShowAlert(false); // Hide the alert
+  };
+
   return <>
-
+  {showAlert && <Alert onClose={closeAlert} title={title} message={message} />}
     <footer className="bg-slate-200">
       <div className="mx-auto max-w-screen-xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-md">
@@ -17,15 +39,15 @@ const Footer = () => {
 
               <input
                 className="w-full rounded-full border-gray-200 bg-gray-100 p-4 pe-32 text-sm font-medium"
-                id="email"
                 type="email"
+                value={email}
+                onChange={handleInputChange}
                 placeholder="john@doe.com"
               />
 
               <button
                 className="absolute end-1 top-1/2 -translate-y-1/2 rounded-full bg-yellow-500 px-5 py-3 text-sm font-medium text-white transition hover:bg-yellow-700"
-                onClick={(e)=> {e.preventDefault(); alert('Thank you for subscription');}}
-              >
+                onClick={(e) => {e.preventDefault(); triggerAlert('Subscribed', `${email} - has beed added to our subscription list.`)}}>
                 Subscribe
               </button>
             </div>
@@ -139,5 +161,3 @@ const Footer = () => {
     </footer>
   </>
 }
-
-export default Footer
