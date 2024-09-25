@@ -12,6 +12,7 @@ import './output.css';
 import RootLayout from "./layouts/RootLayout";
 import PageNotFound from "./pages/PageNotFound";
 import UnderDev from "./pages/UnderDev";
+import FAQ from "./pages/FAQ";
 export default function App(){
   
   const router = createBrowserRouter(
@@ -23,7 +24,7 @@ export default function App(){
 
         <Route path="/about" element={<UnderDev/>} />
         <Route path="/blog" element={<UnderDev/>} />
-        <Route path="/faq" element={<UnderDev/>} />
+        <Route path="/faq" element={<FAQ/>} />
         <Route path="/sign-in" element={<UnderDev/>} />
 
         <Route path="*" element={<PageNotFound/>} />
