@@ -6,7 +6,7 @@ const BookItem = ({ item }) => {
     return <>
 
         <Link
-            to={`\books\${bookId.toString()}`}
+            to={`/books/${bookId.toString()}`}
             state={{ item }}
             className="group relative block overflow-hidden rounded-md">
             <button

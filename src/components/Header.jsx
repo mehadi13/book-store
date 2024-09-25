@@ -14,19 +14,19 @@ const Header = () => {
           <nav aria-label="Global">
             <ul className="flex items-center gap-6 text-sm">
               <li>
-                <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Home </a>
+                <Link className="text-gray-700 transition hover:text-yellow-600" to="/"> Home </Link>
               </li>
 
               <li>
-                <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> About </a>
+                <Link className="text-gray-700 transition hover:text-yellow-600" to="/about"> About </Link>
               </li>
 
               <li>
-                <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Blog </a>
+                <Link className="text-gray-700 transition hover:text-yellow-600" to="/blog"> Blog </Link>
               </li>
 
               <li>
-                <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> FAQ </a>
+                <Link className="text-gray-700 transition hover:text-yellow-600" to="/faq"> FAQ </Link>
               </li>
             </ul>
           </nav>
@@ -34,20 +34,20 @@ const Header = () => {
 
         <div className="flex items-center gap-4">
           <div className="sm:flex sm:gap-4">
-            <a
-              className="rounded-md bg-yellow-500 hover:bg-yellow-700 px-5 py-2.5 text-sm hover:text-white font-medium shadow"
-              href="#"
+            <Link
+              className="rounded-md bg-yellow-500 hover:bg-yellow-700 px-5 py-2.5 text-sm text-white font-medium shadow"
+              to="/books"
             >
               Buy Book
-            </a>
+            </Link>
 
             <div className="hidden sm:flex">
-              <a
+              <Link
                 className="rounded-md bg-gray-200 hover:bg-gray-400 px-5 py-2.5 text-sm font-medium text-yellow-600 hover:text-white"
-                href="#"
+                to="/sign-in"
               >
                 Sign In
-              </a>
+              </Link>
             </div>
           </div>
 

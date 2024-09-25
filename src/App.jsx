@@ -11,14 +11,21 @@ import {
 import './output.css';
 import RootLayout from "./layouts/RootLayout";
 import PageNotFound from "./pages/PageNotFound";
+import UnderDev from "./pages/UnderDev";
 export default function App(){
   
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<RootLayout/>}>
         <Route index element={<Home/>} loader={bookLoader} />
-        <Route path="books" element={<BookList/>} />
-        <Route path="books/:bookId" element={<BookDetails/>}/>
+        <Route path="/books" element={<BookList/>}  loader={bookLoader} />
+        <Route path="/books/:bookId" element={<BookDetails/>}/>
+
+        <Route path="/about" element={<UnderDev/>} />
+        <Route path="/blog" element={<UnderDev/>} />
+        <Route path="/faq" element={<UnderDev/>} />
+        <Route path="/sign-in" element={<UnderDev/>} />
+
         <Route path="*" element={<PageNotFound/>} />
       </Route>
     )

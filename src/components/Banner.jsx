@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import library from "../assets/library-with-books.jpg"
+
 const Banner = () => {
   return <>
     {/*
@@ -14,7 +17,7 @@ const Banner = () => {
       ></div>
 
       <div
-        className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:items-center lg:px-8"
+        className="relative mx-auto max-w-screen-xl px-4 sm:px-6 lg:flex lg:items-center lg:px-8"
       >
         <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
           <span className="font-extrabold text-4xl text-blue-500">Unlock a World of Stories </span>
@@ -22,18 +25,18 @@ const Banner = () => {
             <span className="block font-extrabold text-5xl text-yellow-500 mt-2">Book Nook</span>
 
           <div className="mt-8 flex flex-wrap gap-4 place-content-center">
-            <a
-              href="#"
-              className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
+            <Link
+              to="/books"
+              className="block w-full rounded bg-yellow-500 px-12 py-3 text-sm font-medium text-white shadow hover:bg-yellow-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
             >
               Buy Book
-            </a>
+            </Link>
           </div>
         </div>
       </div>
 
       <div className="hidden md:inline-block">
-        <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="Store Image" />
+        <img src={library} alt="Store Image" />
       </div>
     </section>
   </>
